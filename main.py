@@ -14,18 +14,20 @@ def sign_in(meetingid, pswd):
     #If on mac / Linux use below line for opening zoom
     subprocess.call(["/usr/bin/open", "/Applications/zoom.us.app"])
 
-    time.sleep(10)
+    time.sleep(3)
     
     #clicks the join button
-    join_btn = pyautogui.locateCenterOnScreen('join_button.png')
+    join_btn = pyautogui.locateAllOnScreen('join_button.png')
     pyautogui.moveTo(join_btn)
     pyautogui.click()
 
+    time.sleep(3)
     # Type the meeting ID
     meeting_id_btn =  pyautogui.locateCenterOnScreen('meeting_id_button.png')
     pyautogui.moveTo(meeting_id_btn)
     pyautogui.click()
     pyautogui.write(meetingid)
+    time.sleep(3)
 
     # Disables both the camera and the mic
     media_btn = pyautogui.locateAllOnScreen('media_btn.png')
@@ -35,7 +37,7 @@ def sign_in(meetingid, pswd):
         time.sleep(2)
 
     # Hits the join button
-    join_btn = pyautogui.locateCenterOnScreen('join_btn.png')
+    join_btn = pyautogui.locateAllOnScreen('join_btn.png')
     pyautogui.moveTo(join_btn)
     pyautogui.click()
     
